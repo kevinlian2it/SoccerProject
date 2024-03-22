@@ -1,7 +1,8 @@
 # COMS W3132 Individual Project
 
 ## Author
-*Your name and email goes here.*
+Kevin Lian
+kl3451@columbia.edu
 
 ## Project Title
 *Provide a short and descriptive title for your project.*
