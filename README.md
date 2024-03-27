@@ -5,10 +5,14 @@ Kevin Lian
 kl3451@columbia.edu
 
 ## Project Title
-*Provide a short and descriptive title for your project.*
+**Soccer Talent Identifier: Leveraging Machine Learning for Optimal Player-Team Fit**
 
 ## Project Description
-*Write a short, concise project description of what your project aims to achieve. Include the motivation for this project (why do you want to work on it), the problem your project aims to solve, and the main goals that you want to accomplish within the rest of the semester. Also mention why you think the project might be useful or interesting to others. Keep this section short. A couple of paragraphs would do.*
+The Soccer Talent Identifier project leverages machine learning to match soccer players with teams where they are most likely to excel. Motivated by the growing complexity and competitive nature of sports analytics, as well as a huge personal passion for the sport, this project seeks to solve the challenge of identifying optimal player-team fits using data-driven insights. By analyzing detailed player statistics from fbref, we aim to develop predictive models that can recommend player signings based on a team's strategic needs and playing style.
+
+Although most high-level soccer teams already have detailed databases for player scouting, these databases are highly confidential. This project seeks to make player scouting and knowledge more accessible to everyday fans and make fans more informed about players and clubs. The main goals for the semester include successfully scraping and processing player data from fbref, developing and testing machine learning models for player-team matching, and creating a user-friendly interface for accessing these insights.
+
+The project holds significant utility and interest for soccer clubs, scouts, and analytics enthusiasts, offering a novel tool for data-informed decision-making in player acquisition and team development. By harnessing the power of machine learning, the Soccer Talent Identifier promises to bring a new level of precision to the art of building winning teams.
 
 ## Timeline
 
@@ -29,6 +33,8 @@ kl3451@columbia.edu
 *List the key requirements or features of your project. For each feature, provide a user story or a simple scenario explaining how the feature will be used. You don't have to get this section right the first time. Your understanding of the problem and requirements will improve as you work on your project. It is okay (and desirable) to come back to this section and revise it as you learn more about the problem you are trying to solve. The first version of this section should reflect your understanding of your problem at the beginning of the project.*
 
 *Also list any required hardware, software, on online services you will need. In specific cases, we might be able to lend you hardware or obtain online services. Please email the instructor for more details.*
+
+Data Scraping: Beautiful Soup, Pandas, NumPy
 
 ## Technical Specification
 *Detail the main algorithms, libraries, and technologies you plan to use. Explain your choice of technology and how it supports your project goals.*
