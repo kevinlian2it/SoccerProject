@@ -34,6 +34,7 @@ The project holds significant utility and interest for soccer clubs, scouts, and
 
 *Also list any required hardware, software, on online services you will need. In specific cases, we might be able to lend you hardware or obtain online services. Please email the instructor for more details.*
 
+Dataset: fbref.com
 Data Scraping: Beautiful Soup, Pandas, NumPy
 
 ## Technical Specification
