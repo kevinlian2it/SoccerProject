@@ -23,7 +23,7 @@ The project holds significant utility and interest for soccer clubs, scouts, and
 | **March&nbsp;29**  | Submit project description                                                                             | README.md                   | proposal   |
 | **April&nbsp;5**   | Update project scope/direction based on instructor/TA feedback                                         | README.md                   | approved   |
 | **April&nbsp;12**  | Basic project structure with empty functions/classes (incomplete implementation), architecture diagram | Source code, comments, docs | milestone1 |
-| **April&nbsp;19**  | Progress on implementation (define your own goals)                                                     | Source code, unit tests     | milestone2 |
+| **April&nbsp;19**  | Progress on implementation (data successfully mined and into a usable format)                          | Source code, unit tests     | milestone2 |
 | **April&nbsp;26**  | Completely (or partially) finished implementation                                                      | Source code, documentation  | milestone3 |
 | **May&nbsp;10**    | Final touches (conclusion, documentation, testing, etc.)                                               | Conclusion (README.md)      | conclusion |
 
