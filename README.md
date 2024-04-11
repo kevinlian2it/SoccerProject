@@ -63,11 +63,11 @@ Scenario: The coach logs into the dashboard to view a visual representation of d
 
 **Requirements**
 
-Hardware:
+_Hardware:_
 
 Computer with high processing power and at least 16GB of RAM to handle large datasets and run complex machine learning models efficiently.
 
-Software:
+_Software:_
 
 Python 3.11: The core programming language for the project.
 
@@ -79,7 +79,7 @@ Scikit-learn: For implementing machine learning models.
 
 Matplotlib: For data visualization.
 
-Online Services:
+_Online Services:_
 
 GitHub: For version control and collaboration.
 
