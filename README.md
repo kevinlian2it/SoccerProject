@@ -70,14 +70,19 @@ Computer with high processing power and at least 16GB of RAM to handle large dat
 Software:
 
 Python 3.11: The core programming language for the project.
+
 Beautiful Soup: For scraping data from web pages.
+
 Pandas and NumPy: For data manipulation and numerical analysis.
+
 Scikit-learn: For implementing machine learning models.
-Matplotlib and Seaborn: For data visualization.
-Jupyter Notebook or Visual Studio Code: As an IDE for development.
+
+Matplotlib: For data visualization.
+
 Online Services:
 
 GitHub: For version control and collaboration.
+
 fbref.com: As the primary data source.
 
 ## Technical Specification
