@@ -30,27 +30,39 @@ The project holds significant utility and interest for soccer clubs, scouts, and
 *The column Deliverables lists deliverable suggestions, but you can choose your own, depending on the type of your project.*
 
 ## Requirements, Features and User Stories
-##Feature 1: Data Scraping
+
+**Feature 1: Data Scraping**
 
 User Story: As a data scientist, I need to automatically extract player statistics and historical performance data from fbref.com, so I can analyze and utilize up-to-date data without manual intervention.
+
 Scenario: The system schedules daily scraping tasks that pull the latest player statistics from fbref.com, ensuring that the dataset is always current and reflects the most recent games.
-##Feature 2: Data Preprocessing
+
+**Feature 2: Data Preprocessing**
 
 User Story: As a developer, I need tools to clean and preprocess the raw data, transforming it into a structured format, ready for analysis and model training.
+
 Scenario: Once data is scraped, it undergoes preprocessing to remove inconsistencies, handle missing values, and convert text data into numerical values that can be used in machine learning models.
-##Feature 3: Player Performance Prediction Model
+
+**Feature 3: Player Performance Prediction Model**
 
 User Story: As a team strategist, I want to use historical data to predict future performance of players, so I can make informed decisions about potential signings.
+
 Scenario: A team strategist inputs desired player characteristics, and the system provides predictions and insights on how well players matching these characteristics are expected to perform in the upcoming season.
-##Feature 4: Player-Team Fit Analysis
+
+**Feature 4: Player-Team Fit Analysis**
 
 User Story: As a soccer club scout, I need a tool that can suggest players who fit our team’s style and needs, optimizing our recruitment strategy.
+
 Scenario: The scout specifies the team’s playing style and needs using the system interface. The system then analyzes available players and suggests those whose past performance and skills best match the criteria.
-##Feature 5: Interactive Dashboard
+
+**Feature 5: Interactive Dashboard**
 
 User Story: As a coach, I need an interactive dashboard to visualize player statistics and model outputs, helping me to easily understand data-driven insights.
+
 Scenario: The coach logs into the dashboard to view a visual representation of data on player performance trends, predictions, and recommended signings, with options to drill down into specific aspects like defensive skills or goal scoring.
-##Requirements
+
+**Requirements**
+
 Hardware:
 
 Computer with high processing power and at least 16GB of RAM to handle large datasets and run complex machine learning models efficiently.
