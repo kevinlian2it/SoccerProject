@@ -41,7 +41,8 @@ Data Scraping: Beautiful Soup, Pandas, NumPy
 *Detail the main algorithms, libraries, and technologies you plan to use. Explain your choice of technology and how it supports your project goals.*
 
 ## System or Software Architecture Diagram
-*Include a block-based diagram illustrating the architecture of your software or system. This should include major components, such as user interface elements, back-end services, and data storage, and show how they interact. Tools like Lucidchart, Draw.io, or even hand-drawn diagrams photographed and uploaded are acceptable. The purpose of the diagram is to help us understand the architecture of your solution. Diagram asthetics do not matter and will not be graded.*
+![SoccerProject](https://github.com/coms-w3132/final-project-kevinlian2it/assets/52785160/72c01a40-8f64-47ee-8a0d-2ec747b1f6da)
+
 
 ## Development Methodology
 *Describe the methodology you'll use to organize and progress your work.*
