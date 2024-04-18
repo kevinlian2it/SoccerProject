@@ -21,13 +21,26 @@ def preprocess_data(df):
     # Rename columns and remove unwanted levels or prefixes
     df = df.rename(columns=lambda x: x.split(' ')[-1] if 'level_0' in x else x)
 
+    # creating a list with new names
+    new_columns = []
+    for col in df.columns:
+        if 'level_0' in col:
+            new_col = col.split()[-1]  # takes the last name
+        else:
+            new_col = col
+        new_columns.append(new_col)
+
+    # rename columns
+    df.columns = new_columns
+    df = df.fillna(0)
+
     # Clean specific columns
     df['Age'] = df['Age'].str[:2]
     df['Position_2'] = df['Pos'].str[3:]
     df['Position'] = df['Pos'].str[:2]
     df['Nation'] = df['Nation'].str.split(' ').str.get(1)
     df['League'] = df['Comp'].str.split(' ').str.get(1) + ' ' + df['Comp'].str.split(' ').str.get(2)
-    df = df.drop(columns=['League_', 'Comp', 'Rk', 'Pos', 'Matches'])
+    df = df.drop(columns=['Comp', 'Rk', 'Pos', 'Matches'])
 
     # Map abbreviated positions to full names
     positions_map = {'MF': 'Midfielder', 'DF': 'Defender', 'FW': 'Forward', 'GK': 'Goalkeeper'}

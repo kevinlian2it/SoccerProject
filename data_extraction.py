@@ -12,9 +12,7 @@ def scrape_data(url):
     """
     try:
         # Fetch the HTML tables from the URL
-        df_list = pd.read_html(url, header=1)
-        # We select the first table; this may need to be adjusted based on the page structure
-        df = df_list[0]
+        df = pd.read_html(url)[0]
         return df
     except Exception as e:
         print(f"An error occurred while fetching data: {e}")
