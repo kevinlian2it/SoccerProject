@@ -30,18 +30,67 @@ The project holds significant utility and interest for soccer clubs, scouts, and
 *The column Deliverables lists deliverable suggestions, but you can choose your own, depending on the type of your project.*
 
 ## Requirements, Features and User Stories
-*List the key requirements or features of your project. For each feature, provide a user story or a simple scenario explaining how the feature will be used. You don't have to get this section right the first time. Your understanding of the problem and requirements will improve as you work on your project. It is okay (and desirable) to come back to this section and revise it as you learn more about the problem you are trying to solve. The first version of this section should reflect your understanding of your problem at the beginning of the project.*
 
-*Also list any required hardware, software, on online services you will need. In specific cases, we might be able to lend you hardware or obtain online services. Please email the instructor for more details.*
+**Feature 1: Data Scraping**
 
-Dataset: fbref.com
-Data Scraping: Beautiful Soup, Pandas, NumPy
+User Story: As a data scientist, I need to automatically extract player statistics and historical performance data from fbref.com, so I can analyze and utilize up-to-date data without manual intervention.
+
+Scenario: The system schedules daily scraping tasks that pull the latest player statistics from fbref.com, ensuring that the dataset is always current and reflects the most recent games.
+
+**Feature 2: Data Preprocessing**
+
+User Story: As a developer, I need tools to clean and preprocess the raw data, transforming it into a structured format, ready for analysis and model training.
+
+Scenario: Once data is scraped, it undergoes preprocessing to remove inconsistencies, handle missing values, and convert text data into numerical values that can be used in machine learning models.
+
+**Feature 3: Player Performance Prediction Model**
+
+User Story: As a team strategist, I want to use historical data to predict future performance of players, so I can make informed decisions about potential signings.
+
+Scenario: A team strategist inputs desired player characteristics, and the system provides predictions and insights on how well players matching these characteristics are expected to perform in the upcoming season.
+
+**Feature 4: Player-Team Fit Analysis**
+
+User Story: As a soccer club scout, I need a tool that can suggest players who fit our team’s style and needs, optimizing our recruitment strategy.
+
+Scenario: The scout specifies the team’s playing style and needs using the system interface. The system then analyzes available players and suggests those whose past performance and skills best match the criteria.
+
+**Feature 5: Interactive Dashboard**
+
+User Story: As a coach, I need an interactive dashboard to visualize player statistics and model outputs, helping me to easily understand data-driven insights.
+
+Scenario: The coach logs into the dashboard to view a visual representation of data on player performance trends, predictions, and recommended signings, with options to drill down into specific aspects like defensive skills or goal scoring.
+
+**Requirements**
+
+_Hardware:_
+
+Computer with high processing power and at least 16GB of RAM to handle large datasets and run complex machine learning models efficiently.
+
+_Software:_
+
+Python 3.11: The core programming language for the project.
+
+Beautiful Soup: For scraping data from web pages.
+
+Pandas and NumPy: For data manipulation and numerical analysis.
+
+Scikit-learn: For implementing machine learning models.
+
+Matplotlib: For data visualization.
+
+_Online Services:_
+
+GitHub: For version control and collaboration.
+
+fbref.com: As the primary data source.
 
 ## Technical Specification
 *Detail the main algorithms, libraries, and technologies you plan to use. Explain your choice of technology and how it supports your project goals.*
 
 ## System or Software Architecture Diagram
-*Include a block-based diagram illustrating the architecture of your software or system. This should include major components, such as user interface elements, back-end services, and data storage, and show how they interact. Tools like Lucidchart, Draw.io, or even hand-drawn diagrams photographed and uploaded are acceptable. The purpose of the diagram is to help us understand the architecture of your solution. Diagram asthetics do not matter and will not be graded.*
+![SoccerProject](https://github.com/coms-w3132/final-project-kevinlian2it/assets/52785160/72c01a40-8f64-47ee-8a0d-2ec747b1f6da)
+
 
 ## Development Methodology
 *Describe the methodology you'll use to organize and progress your work.*
