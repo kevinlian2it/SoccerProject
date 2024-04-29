@@ -1,6 +1,13 @@
 import pandas as pd
 
 class RecommenderSystem:
+    """
+    A system to recommend soccer players to teams based on goal-creating action (GCA) statistics.
+
+    Attributes:
+        player_data (DataFrame): A DataFrame containing player statistics.
+        team_data (DataFrame): A DataFrame containing team statistics.
+    """
     def __init__(self, player_data, team_data):
         self.player_data = player_data
         self.team_data = team_data
@@ -46,5 +53,16 @@ class RecommenderSystem:
         return top_players[['Player', 'Nation', 'Squad', 'Age', 'Position', 'League', 'SCA90']]
 
     def recommend(self, team_name, position=None, top_n=5):
+        """
+        Generates a list of top N player recommendations for a specified team and position.
+
+        Args:
+            team_name (str): The team for which to make recommendations.
+            position (str, optional): The specific position to consider for recommendations. Defaults to None.
+            top_n (int, optional): The number of top player recommendations to return. Defaults to 5.
+
+        Returns:
+            DataFrame: A DataFrame of the top N recommended players for the team and position.
+        """
         recommended_players = self.find_best_fit(team_name, position)
         return recommended_players.head(top_n)

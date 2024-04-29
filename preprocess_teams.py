@@ -21,7 +21,7 @@ def preprocess_team(df):
     # Rename columns and remove unwanted levels or prefixes
     df = df.rename(columns=lambda x: x.split(' ')[-1] if 'level_0' in x else x)
 
-    # creating a list with new names
+    # Creating a list with new names
     new_columns = []
     for col in df.columns:
         if 'level_0' in col:
@@ -30,11 +30,9 @@ def preprocess_team(df):
             new_col = col
         new_columns.append(new_col)
 
-    # rename columns
+    # Rename columns
     df.columns = new_columns
     df = df.fillna(0)
-
-    # Renaming columns using a dictionary
     df = df.rename(columns={
         'SCA SCA': 'SCA',
         'SCA SCA90': 'SCA90',
