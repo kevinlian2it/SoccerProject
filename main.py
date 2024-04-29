@@ -27,11 +27,28 @@ def main():
     # Initialize recommender system
     recommender = RecommenderSystem(player_processed_data, team_processed_data)
 
+    # Prompt user to select a team
+    team_names = team_processed_data['Squad'].tolist()
+    print("Select a team for which you want recommendations:")
+    for i, team_name in enumerate(team_names, 1):
+        print(f"{i}. {team_name}")
+
+    team_index = int(input("Enter the number for the team: ")) - 1
+    selected_team = team_names[team_index]
+
+    # Get user input for the position using abbreviations
+    position_map = {'MF': 'Midfielder', 'FW': 'Forward', 'DF': 'Defender'}
+    print("\nSelect a position for which you want recommendations:")
+    print("MF for Midfielder, FW for Forward, DF for Defender")
+    position_input = input("Enter the position abbreviation (leave blank for any): ").upper()
+    position = position_map.get(position_input, None)
+
     # Step 3: Make Recommendations
-    recommendations = recommender.recommend('Manchester City', position='Forward', top_n=5)
+    top_n = int(input("How many player recommendations do you want? "))
+    recommendations = recommender.recommend(selected_team, position, top_n)
 
     # Display recommendations
-    print("Recommendations for Man City (Midfielders):")
+    print(f"\nRecommendations for {selected_team} ({'any position' if not position else position}):")
     print(recommendations)
 
 if __name__ == "__main__":
