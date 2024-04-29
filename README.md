@@ -65,50 +65,114 @@ Scenario: The coach logs into the dashboard to view a visual representation of d
 
 _Hardware:_
 
-Computer with high processing power and at least 16GB of RAM to handle large datasets and run complex machine learning models efficiently.
+Computer with enough processing power to handle large datasets and run computations.
 
 _Software:_
 
 Python 3.11: The core programming language for the project.
 
-Beautiful Soup: For scraping data from web pages.
-
 Pandas and NumPy: For data manipulation and numerical analysis.
 
-Scikit-learn: For implementing machine learning models.
+Scikit-learn: For implementing machine learning models. (For future implementation)
 
-Matplotlib: For data visualization.
+Matplotlib: For data visualization. (For future implementation)
 
 _Online Services:_
 
 GitHub: For version control and collaboration.
 
+transfermarkt.com: Data to generate market fees. (For future implementation)
+
 fbref.com: As the primary data source.
 
+URL used for player data: https://fbref.com/en/comps/Big5/gca/players/Big-5-European-Leagues-Stats#stats_gca
+
+URL used for team data: https://fbref.com/en/comps/9/gca/Premier-League-Stats
+
 ## Technical Specification
-*Detail the main algorithms, libraries, and technologies you plan to use. Explain your choice of technology and how it supports your project goals.*
+
+### How to Run the Code
+The code can be run by downloading all the python files first. Then, the user would have to install the library pandas on their environment, before simply executing the command 'python main.py' in the terminal. 
+
+### Main Algorithms and Libraries
+- **Pandas**: Utilized for its high-performance data manipulation and analysis capabilities, perfect for handling the extensive datasets from FBref.
+- **Scikit-learn**: Will be used for implementing machine learning algorithms that will drive the recommendation system. Its ease of use and wide range of algorithms support our goal to match players with teams effectively.
+- **NumPy**: This library is the cornerstone for numerical computing in Python and works seamlessly with Pandas and Scikit-learn, providing an efficient array processing for numerical operations.
+
+### Development and Version Control
+- **Git**: The standard for version control, allowing us to manage code changes and collaborate efficiently.
+- **GitHub**: Hosts our repository and facilitates issue tracking and documentation.
+
+### Choice of Technology
+The selected technologies each play a vital role in the project's infrastructure:
+- **Pandas** forms the data extraction and preprocessing layer, transforming unstructured data from web pages into a structured form ready for analysis.
+- **Scikit-learn** will be pivotal for predictive analytics, enabling the creation of machine learning models that can predict player performance and suitability.
+- **NumPy** enhances performance in data manipulation tasks, essential for handling large-scale data with speed and precision.
+- **Git and GitHub** provide robust tools for source control management and collaborative development, ensuring that project milestones are met with a high standard of code quality and collaboration.
+
+These technologies collectively support the project’s goal of developing an intelligent, data-driven recommendation system for soccer player-team fit analysis.
 
 ## System or Software Architecture Diagram
 ![SoccerProject](https://github.com/coms-w3132/final-project-kevinlian2it/assets/52785160/72c01a40-8f64-47ee-8a0d-2ec747b1f6da)
 
 
 ## Development Methodology
-*Describe the methodology you'll use to organize and progress your work.*
 
-*First, describe your plan for developing your project. This might include how (or if) you plan to use*
-- *GitHub projects board to track progress on tasks and milestones*
-- *GitHub issues to keep track of issues or problems*
-- *Separate Git branches and/or GitHub pull requests for development*
-- *GitHub actions for automated testing or deployment pipelines*
-- *GitHub wiki for documentation and notes*
+The project will employ an agile and iterative development approach, utilizing various features of GitHub to organize, track, and progress the work:
 
-*Please also describe how (if) you plan test and evaluate your project's functionality. Do you plan to test manually or automatically? Any specific testing frameworks or libraries you plan to use?*
+- **GitHub Project Board**: I utilize a projects board on GitHub to manage tasks and milestones. The board will be organized with deliverables and due dates to provide a clear view of the project’s status at any given moment.
+
+- **Commits**: For having up to date code, commits and push requests will be done constantly in order to ensure the latest work is represented in the repository.
+
+### Testing and Evaluation
+
+Testing is a critical component of the development lifecycle to ensure functionality, performance, and reliability:
+
+- **Manual Testing**: Manual testing will be conducted to verify the user interface and the system as a whole. This approach is particularly useful for exploratory testing, usability testing, and to ensure that the project meets the user requirements.
+
+By employing this development and testing methodology, the project aims to achieve a high standard of code quality and maintainability, ensuring that the final product is reliable.
 
 ## Potential Challenges and Roadblocks
-*Identify any potential challenges or roadblocks you anticipate facing during the development of your project. For each challenge, propose strategies or solutions you might use to overcome them, which may include getting help from the TAs/instructor. This could include technical hurdles or learning new technologies.*
 
-## Additional Resources
-*Include any additional resources, tutorials, or documentation that will be helpful for this project.*
+### Challenge 1: Data Scraping Robustness
+**Anticipated Issue**: The structure of FBref.com may change, which could break the scraping logic.
+
+**Strategies**: To mitigate this, I could:
+- Write scraping functions with BeautifulSoup that target class names or IDs that are less likely to change.
+- Set up monitoring scripts that alert us if the output data format changes unexpectedly.
+
+### Challenge 2: Data Quality and Preprocessing
+**Anticipated Issue**: Ensuring the quality of data after scraping and during preprocessing.
+
+**Strategies**: 
+- Implement thorough validation checks post-scraping.
+- Use Pandas to handle missing or inconsistent data effectively, possibly with custom cleaning functions.
+
+### Challenge 3: Model Accuracy and Performance
+**Anticipated Issue**: Creating a machine learning model with satisfactory accuracy and performance.
+
+**Strategies**:
+- Begin with simple models using Scikit-learn to establish a baseline before moving to more complex algorithms.
+- Experiment with different feature engineering techniques to improve model performance.
+
+### Challenge 4: Automated Testing
+**Anticipated Issue**: Developing a comprehensive suite of automated tests.
+
+**Strategies**:
+- Utilize pytest for unit testing from the outset.
 
 ## Conclusion and Future Work
-*Wrap up your project description with any final thoughts, expectations, or goals not covered in the sections above. Also briefly discuss potential future work, i.e., what could be done next to improve the project.*
+As I reflect on the progress of this project, I am filled with a sense of accomplishment. The journey of transforming a concept into a tangible, functioning system has been both challenging and immensely rewarding. The experience has not only honed my technical skills but also deepened my understanding of how data can influence and enrich the beautiful game.
+
+I am excited for the future of this project. There is so much more to do—refining algorithms, expanding functionality, and possibly venturing into new territories of predictive analytics.
+
+This project has boosted my confidence in taking on large and complex endeavors. I felt that I have grown more adept and assured in my abilities. I look forward to building on this foundation and keep working on larger projects.
+
+### Potential Future Work
+Looking to the future, there are several possibilities:
+
+- **Advanced Modeling**: Leveraging cutting-edge machine learning techniques to refine our recommendations, ensuring they're as accurate and insightful as possible.
+  
+- **User Experience**: Crafting an engaging user interface that invites interaction and demystifies the underlying complexities of data analysis.
+
+- **Real-time Analytics**: Striving for a system that operates on live data, providing instant, up-to-date recommendations.
