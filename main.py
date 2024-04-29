@@ -1,27 +1,32 @@
 from data_extraction import scrape_data
 from data_preprocessing import preprocess_data
+from preprocess_teams import preprocess_team
 
 def main():
-    # Define the URL of the data source
-    url = "https://fbref.com/en/comps/Big5/gca/players/Big-5-European-Leagues-Stats#stats_gca"
+    # URL of the data source
+    player_url = "https://fbref.com/en/comps/Big5/gca/players/Big-5-European-Leagues-Stats#stats_gca"
+    team_url = "https://fbref.com/en/comps/9/gca/Premier-League-Stats"
 
     # Step 1: Extract Data
     print("Starting data extraction...")
-    raw_data = scrape_data(url)
-    if raw_data.empty:
+    player_data = scrape_data(player_url)
+    if player_data.empty:
         print("No data extracted.")
         return
+    team_data = scrape_data(team_url)
 
     # Step 2: Preprocess Data
     print("Starting data preprocessing...")
-    processed_data = preprocess_data(raw_data)
-    if processed_data.empty:
+    player_processed_data = preprocess_data(player_data)
+    if player_processed_data.empty:
         print("Data preprocessing failed.")
         return
+    team_processed_data = preprocess_team(team_data)
 
     # Example of further actions: Print first few rows to verify output
     print("Processed Data:")
-    print(processed_data.head())
+    print(player_processed_data.head())
+    print(team_processed_data)
 
 if __name__ == "__main__":
     main()
