@@ -50,4 +50,23 @@ def preprocess_data(df):
     # Fill NA values for 'League' with default value if any
     df['League'] = df['League'].fillna('Bundesliga')
 
+    df = df.rename(columns={
+        'SCA SCA': 'SCA',
+        'SCA SCA90': 'SCA90',
+        'SCA Types PassLive': 'SCA PassLive',
+        'SCA Types PassDead': 'SCA PassDead',
+        'SCA Types TO': 'SCA TO',
+        'SCA Types Sh': 'SCA Sh',
+        'SCA Types Fld': 'SCA Fld',
+        'SCA Types Def': 'SCA Def',
+        'GCA GCA': 'GCA',
+        'GCA GCA90': 'GCA90',
+        'GCA Types PassLive': 'GCA PassLive',
+        'GCA Types PassDead': 'GCA PassDead',
+        'GCA Types TO': 'GCA TO',
+        'GCA Types Sh': 'GCA Sh',
+        'GCA Types Fld': 'GCA Fld',
+        'GCA Types Def': 'GCA Def',
+    })
+
     return df

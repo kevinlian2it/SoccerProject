@@ -1,6 +1,7 @@
 from data_extraction import scrape_data
 from data_preprocessing import preprocess_data
 from preprocess_teams import preprocess_team
+from model import RecommenderSystem
 
 def main():
     # URL of the data source
@@ -23,10 +24,15 @@ def main():
         return
     team_processed_data = preprocess_team(team_data)
 
-    # Example of further actions: Print first few rows to verify output
-    print("Processed Data:")
-    print(player_processed_data.head())
-    print(team_processed_data)
+    # Initialize recommender system
+    recommender = RecommenderSystem(player_processed_data, team_processed_data)
+
+    # Step 3: Make Recommendations
+    recommendations = recommender.recommend('Manchester City', position='Forward', top_n=5)
+
+    # Display recommendations
+    print("Recommendations for Man City (Midfielders):")
+    print(recommendations)
 
 if __name__ == "__main__":
     main()

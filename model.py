@@ -13,6 +13,8 @@ class RecommenderSystem:
 
         # Define the team's needs based on GCA90 stats
         team_sca90 = pd.to_numeric(team.iloc[0]['SCA90'], errors='coerce')
+        # Calculate the individual player target SCA90 as 1/4th of the team's SCA90
+        target_sca90 = team_sca90 / 5
 
         # If the value cannot be converted to numeric, handle it
         if pd.isnull(team_sca90):
@@ -23,11 +25,12 @@ class RecommenderSystem:
         available_players = self.player_data.dropna(subset=['90s'])
         available_players = available_players[available_players['90s'] >= 10.0]
 
-        # Filter players based on the position if provided
+        # Drop all players from the specified team
+        available_players = available_players[available_players['Squad'] != team_name]
+
+        # If position is specified, further filter players by position
         if position:
-            available_players = self.player_data[self.player_data['Position'] == position]
-        else:
-            available_players = self.player_data
+            available_players = available_players[available_players['Position'] == position]
 
         # Convert the 'SCA90' column to numeric
         available_players['SCA90'] = pd.to_numeric(available_players['SCA90'], errors='coerce')
@@ -35,15 +38,13 @@ class RecommenderSystem:
         # Ensure there are no NaN values before comparison
         available_players = available_players.dropna(subset=['SCA90'])
 
-        # Now perform the comparison
-        suitable_players = available_players[available_players['SCA90'] >= (team_sca90/8)]
-
-        # Sort players by GCA and pick top recommendations
-        top_players = suitable_players.sort_values(by='SCA90', ascending=False)
+        suitable_players = available_players
+        # Sort players by how close they are to the target SCA90
+        suitable_players['delta_from_target'] = (suitable_players['SCA90'] - target_sca90).abs()
+        top_players = suitable_players.sort_values(by='delta_from_target')
 
         return top_players[['Player', 'Nation', 'Squad', 'Age', 'Position', 'League', 'SCA90']]
 
     def recommend(self, team_name, position=None, top_n=5):
         recommended_players = self.find_best_fit(team_name, position)
-        print(recommended_players)
         return recommended_players.head(top_n)
