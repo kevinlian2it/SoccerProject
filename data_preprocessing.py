@@ -1,72 +1,63 @@
+# data_preprocessing.py
 import pandas as pd
 
-def preprocess_data(df):
+
+def preprocess_data(player_df, defense_df):
     """
-    Clean and preprocess the scraped data to remove multi-index and customize data frame.
+    Preprocess the player and defense data to include relevant statistics.
 
     Args:
-    df (pd.DataFrame): The DataFrame to preprocess.
+    player_df (pd.DataFrame): DataFrame containing player stats.
+    defense_df (pd.DataFrame): DataFrame containing defensive stats.
 
     Returns:
-    pd.DataFrame: The preprocessed DataFrame.
+    pd.DataFrame: The merged and processed player data with relevant stats.
     """
-    if df.empty:
-        print("No data to process.")
-        return df
+    # Flatten column names
+    player_df.columns = [col[1] if isinstance(col, tuple) else col for col in player_df.columns]
+    defense_df.columns = [col[1] if isinstance(col, tuple) else col for col in defense_df.columns]
 
-    # Flatten the multi-level column headers
-    df.columns = [' '.join(col).strip() for col in df.columns]
-    df = df.reset_index(drop=True)
+    # Select relevant columns
+    player_df = player_df[['Player', 'Nation', 'Pos', 'Comp', 'Squad', 'Age', '90s', 'npxG', 'xAG', 'npxG+xAG', 'PrgC', 'PrgP']]
+    defense_df = defense_df[['Player', 'Nation', 'Pos', 'Comp', 'Squad', 'Age', '90s', 'Tkl%', 'Tkl+Int']]
 
-    # Rename columns and remove unwanted levels or prefixes
-    df = df.rename(columns=lambda x: x.split(' ')[-1] if 'level_0' in x else x)
+    # Merge player and defense stats on common columns
+    merged_df = pd.merge(player_df, defense_df, on=['Player', 'Nation', 'Pos', 'Comp', 'Squad', 'Age', '90s'], how='outer')
 
-    # Creating a list with new names
-    new_columns = []
-    for col in df.columns:
-        if 'level_0' in col:
-            new_col = col.split()[-1]  # takes the last name
-        else:
-            new_col = col
-        new_columns.append(new_col)
+    merged_df['Comp'] = merged_df['Comp'].str.split().str[1:].str.join(' ')
+    merged_df['Nation'] = merged_df['Nation'].str.split().str[1:].str.join(' ')
 
-    # Rename columns
-    df.columns = new_columns
-    df = df.fillna(0)
+    # Handle duplicate columns if they exist
+    merged_df = merged_df.loc[:, ~merged_df.columns.duplicated()]
 
-    # Clean specific columns
-    df['Age'] = df['Age'].str[:2]
-    df['Position_2'] = df['Pos'].str[3:]
-    df['Position'] = df['Pos'].str[:2]
-    df['Nation'] = df['Nation'].str.split(' ').str.get(1)
-    df['League'] = df['Comp'].str.split(' ').str.get(1) + ' ' + df['Comp'].str.split(' ').str.get(2)
-    df = df.drop(columns=['Comp', 'Rk', 'Pos', 'Matches'])
+    # Handle missing values
+    merged_df = merged_df.fillna(0)
 
-    # Map abbreviated positions to full names
-    positions_map = {'MF': 'Midfielder', 'DF': 'Defender', 'FW': 'Forward', 'GK': 'Goalkeeper'}
-    df['Position'] = df['Position'].map(positions_map)
-    df['Position_2'] = df['Position_2'].map(positions_map)
-
-    # Fill NA values for 'League' with default value if any
-    df['League'] = df['League'].fillna('Bundesliga')
-
-    df = df.rename(columns={
-        'SCA SCA': 'SCA',
-        'SCA SCA90': 'SCA90',
-        'SCA Types PassLive': 'SCA PassLive',
-        'SCA Types PassDead': 'SCA PassDead',
-        'SCA Types TO': 'SCA TO',
-        'SCA Types Sh': 'SCA Sh',
-        'SCA Types Fld': 'SCA Fld',
-        'SCA Types Def': 'SCA Def',
-        'GCA GCA': 'GCA',
-        'GCA GCA90': 'GCA90',
-        'GCA Types PassLive': 'GCA PassLive',
-        'GCA Types PassDead': 'GCA PassDead',
-        'GCA Types TO': 'GCA TO',
-        'GCA Types Sh': 'GCA Sh',
-        'GCA Types Fld': 'GCA Fld',
-        'GCA Types Def': 'GCA Def',
+    merged_df = merged_df.rename(columns={
+        'Pos': 'Position',
+        'Comp': 'League'
     })
 
-    return df
+    # Convert 'Age' and other relevant columns to numeric for calculations
+    merged_df['Age'] = merged_df['Age'].astype(str).str.split('-').str[0]
+
+    return merged_df
+
+
+def preprocess_team_data(team_data):
+    """
+    Preprocess the combined team data for relevant stats.
+
+    Args:
+    team_data (pd.DataFrame): The combined DataFrame of team stats.
+
+    Returns:
+    pd.DataFrame: Processed team stats DataFrame.
+    """
+    # Select only the relevant columns from the combined team data
+    team_data = team_data[['Squad', 'xG', 'xGA', 'xGD/90', 'Tkl%', 'Tkl+Int']].copy()
+
+    # Fill any missing values with 0
+    team_data = team_data.fillna(0)
+
+    return team_data
