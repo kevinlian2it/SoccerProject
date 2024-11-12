@@ -3,7 +3,7 @@ document.getElementById('getRecommendations').addEventListener('click', async ()
     const position = document.getElementById('positionSelect').value;
 
     try {
-        const response = await fetch(`https://your-api-url/api/recommend?team=${team}&position=${position}`);
+        const response = await fetch(`https://soccerproject.onrender.com/api/recommend?team=${team}&position=${position}`);
         const data = await response.json();
 
         const table = document.getElementById('recommendationTable');
