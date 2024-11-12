@@ -20,6 +20,7 @@ def main():
     # Scrape and preprocess team data
     team_data = scrape_team_data(team_standard_url, team_defense_url)
     processed_team_data = preprocess_team_data(team_data)
+    print(processed_team_data)
 
 
     # Calculate suitability scores
