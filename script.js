@@ -1,6 +1,6 @@
 document.getElementById('getRecommendations').addEventListener('click', async () => {
-    const team = document.getElementById('teamSelect').value;
-    const position = document.getElementById('positionSelect').value;
+    const team = document.getElementById('team').value;
+    const position = document.getElementById('position').value;
 
     try {
         const response = await fetch(`https://soccerproject.onrender.com/api/recommend?team=${team}&position=${position}`);
