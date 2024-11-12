@@ -1,5 +1,3 @@
-# COMS W3132 Individual Project
-
 ## Author
 Kevin Lian
 kl3451@columbia.edu
