@@ -1,9 +1,9 @@
+## Project Title
+**Soccer Talent Identifier: Leveraging Machine Learning for Optimal Player-Team Fit**
+
 ## Author
 Kevin Lian
 kl3451@columbia.edu
-
-## Project Title
-**Soccer Talent Identifier: Leveraging Machine Learning for Optimal Player-Team Fit**
 
 ## Project Description
 The Soccer Talent Identifier project leverages machine learning to match soccer players with teams where they are most likely to excel. Motivated by the growing complexity and competitive nature of sports analytics, as well as a huge personal passion for the sport, this project seeks to solve the challenge of identifying optimal player-team fits using data-driven insights. By analyzing detailed player statistics from fbref, we aim to develop predictive models that can recommend player signings based on a team's strategic needs and playing style.
