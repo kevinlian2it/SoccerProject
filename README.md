@@ -71,9 +71,9 @@ Python 3.11: The core programming language for the project.
 
 Pandas and NumPy: For data manipulation and numerical analysis.
 
-Scikit-learn: For implementing machine learning models. (For future implementation)
+Scikit-learn: For implementing machine learning models.
 
-Matplotlib: For data visualization. (For future implementation)
+Matplotlib: For data visualization. (Work in progress...)
 
 _Online Services:_
 
@@ -169,7 +169,7 @@ This project has boosted my confidence in taking on large and complex endeavors.
 ### Potential Future Work
 Looking to the future, there are several possibilities:
 
-- **Advanced Modeling**: Leveraging cutting-edge machine learning techniques to refine our recommendations, ensuring they're as accurate and insightful as possible.
+- **Advanced Modeling**: Leveraging more cutting-edge machine learning techniques to refine our recommendations, ensuring they're as accurate and insightful as possible.
   
 - **User Experience**: Crafting an engaging user interface that invites interaction and demystifies the underlying complexities of data analysis.
 
