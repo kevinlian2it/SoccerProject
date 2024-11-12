@@ -1,5 +1,6 @@
 # app.py
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import pandas as pd
 from recommender_system import RecommenderSystem
 from data_preprocessing import preprocess_data, preprocess_team_data
@@ -7,6 +8,7 @@ from data_extraction import scrape_data, scrape_team_data
 from scoring import score_players_for_team
 
 app = Flask(__name__)
+CORS(app)
 
 # URLs for player and team data
 player_url = "https://fbref.com/en/comps/Big5/stats/players/Big-5-European-Leagues-Stats"
